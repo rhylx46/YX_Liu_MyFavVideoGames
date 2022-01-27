@@ -4,6 +4,8 @@ Yuxuan Liu 0752597
 
 This is an introduction of my top 3 favourite video games.
 
+https://stackblitz.com/github/rhylx46/YX_Liu_MyFavVideoGames
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
 
 ## Development server
