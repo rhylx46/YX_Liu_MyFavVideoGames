@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import  { ContentListComponent } from 'src/app/content-list/content-list.component';
-import { Content } from 'src/app/helper-files/content-interface';
+
+
 
 
 @Component({
