@@ -1,0 +1,28 @@
+<input placeholder="Enter a title" #gameTitle/><button (click) = "gameFilter(gameTitle.value)">Submit</button>
+<div [(ngModel)]="color"><p [style.color]="color">{{ msg }}</p></div>
+
+
+<h3>This is the full list:</h3>
+<div *ngFor="let item of myFavGames; let first = first" class="game" [class.first-item]="first" [ngClass] = "{'Action' : item.type == 'Action', 'SH' : item.type == 'Survival Horror', 'SRPG' : item.type == 'SRPG'}"> 
+
+    <h1>{{ item ? item.title : "" }}</h1>
+    <br><br><em><strong>Description:</strong></em>  {{ item ? item.description : "" }} <br><br>
+    <em><strong>Creator:</strong></em>  {{ item ? item.creator : "" }} <br><br>
+    <div><em><strong>Type:</strong></em>  {{ item ? item.type : "" }} <br><br> </div>
+    <img [src]="item ? item.imgURL : ''" width="300" (click)="showInfo(item)"> <br><br>
+
+</div>
+<br><br>
+<h3>This is the filtered list:</h3>
+
+<div *ngFor="let item of (myFavGames | filter); let first = first" class="game" [class.first-item]="first" [ngClass] = "{'Action' : item.type == 'Action', 'SH' : item.type == 'Survival Horror', 'SRPG' : item.type == 'SRPG'}"> 
+
+        <h1>{{ item ? item.title : "" }}</h1>
+        <br><br><em><strong>Description:</strong></em>  {{ item ? item.description : "" }} <br><br>
+        <em><strong>Creator:</strong></em>  {{ item ? item.creator : "" }} <br><br>
+        <em><strong>Type:</strong></em>  {{ item ? item.type : "" }} <br><br> 
+        <img [src]="item ? item.imgURL : ''" width="300" (click)="showInfo(item)"> <br><br>
+
+</div>
+<!-- <div *ngFor="let item of myFavGames">{{ item ? item.description : "" }}</div> -->
+
