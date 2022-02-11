@@ -1,5 +1,7 @@
 <input placeholder="Enter a title" #gameTitle/><button (click) = "gameFilter(gameTitle.value)">Submit</button>
-<div [(ngModel)]="color"><p [style.color]="color">{{ msg }}</p></div>
+<!-- <div [(ngModel)]="color"><p [style.color]="color">{{ msg }}</p></div> -->
+<div><p *ngIf="msg == 'Yes, there is the game you want'" class="yes">{{ msg }}</p></div>
+<div><p *ngIf="msg == 'No, can\'t find it'" class="no">{{ msg }}</p></div>
 
 
 <h3>This is the full list:</h3>
@@ -8,8 +10,13 @@
     <h1>{{ item ? item.title : "" }}</h1>
     <br><br><em><strong>Description:</strong></em>  {{ item ? item.description : "" }} <br><br>
     <em><strong>Creator:</strong></em>  {{ item ? item.creator : "" }} <br><br>
-    <div><em><strong>Type:</strong></em>  {{ item ? item.type : "" }} <br><br> </div>
+    <div class="type" *ngIf="item?.type">
+        <div><em><strong>Type:</strong></em>  {{ item ? item.type : "" }} <br><br></div>
+    </div>
     <img [src]="item ? item.imgURL : ''" width="300" (click)="showInfo(item)"> <br><br>
+    <div class="tags" *ngIf="item?.tags">
+        <span class="tag" *ngFor="let tag of item?.tags">{{ tag }}</span>
+    </div>
 
 </div>
 <br><br>
@@ -22,7 +29,10 @@
         <em><strong>Creator:</strong></em>  {{ item ? item.creator : "" }} <br><br>
         <em><strong>Type:</strong></em>  {{ item ? item.type : "" }} <br><br> 
         <img [src]="item ? item.imgURL : ''" width="300" (click)="showInfo(item)"> <br><br>
+        <div class="tags" *ngIf="item?.tags">
+            <span class="tag" *ngFor="let tag of item?.tags">{{ tag }}</span>
+        </div>
 
 </div>
-<!-- <div *ngFor="let item of myFavGames">{{ item ? item.description : "" }}</div> -->
+
 

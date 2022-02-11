@@ -26,5 +26,21 @@
     input {
         margin-right: 20px;
     }
+
+    .yes {
+        color: green;
+    }
+
+    .no {
+        color: red;
+    }
+
+    .tag {
+        background-color: lightgray;
+        border: 1 solid black;
+        padding: 6px;
+        margin: 8px;
+        border-radius: 5px;
+    }
 }
 

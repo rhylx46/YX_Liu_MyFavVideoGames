@@ -21,7 +21,8 @@ export class ContentListComponent implements OnInit {
        description: "Sekiro: Shadows Die Twice is a 2019 action-adventure game developed by FromSoftware and published by Activision.",
        creator: "Hidetaka Miyazaki",
        imgURL: "https://upload.wikimedia.org/wikipedia/en/6/6e/Sekiro_art.jpg",
-       type: "Action"
+       type: "Action",
+       tags: ["Soulslike", "Game of the Year"]
      },
 
      {
@@ -97,7 +98,9 @@ gameFilter(game:string):any {
       if (game == this.myFavGames[i].title) {
         this.msg = 'Yes, there is the game you want';
         this.color = "green";
-        return [this.msg, this.color];
+        //return [this.msg, this.color];
+
+        return this.msg;
       } 
       else  {
         this.msg = 'No, can\'t find it';
