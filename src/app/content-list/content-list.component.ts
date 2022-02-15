@@ -8,7 +8,7 @@ import { Content } from '../helper-files/content-interface';
 })
 export class ContentListComponent implements OnInit {
  // myFavGames: Content[];
-
+@Input() item?: Content;
  msg?:string;
  color?: string;  
 
@@ -74,7 +74,7 @@ export class ContentListComponent implements OnInit {
       title: "Resident Evil 2 Remake",
       description: "Resident Evil 2 is a 2019 survival horror game developed and published by Capcom. A remake of the 1998 game of the same name.",
       creator: "Shinji Mikami",
-      imgURL: "https://upload.wikimedia.org/wikipedia/en/f/fd/Resident_Evil_2_Remake.jpg",
+      // imgURL: "https://upload.wikimedia.org/wikipedia/en/f/fd/Resident_Evil_2_Remake.jpg",
       type: "Survival Horror",
       tags: ["RE","Remake"] 
     }

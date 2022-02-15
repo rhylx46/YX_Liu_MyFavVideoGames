@@ -11,11 +11,15 @@
     <br><br><em><strong>Description:</strong></em>  {{ item ? item.description : "" }} <br><br>
     <em><strong>Creator:</strong></em>  {{ item ? item.creator : "" }} <br><br>
     <div class="type" *ngIf="item?.type">
-        <div><em><strong>Type:</strong></em>  {{ item ? item.type : "" }} <br><br></div>
+        <div appHoverAffect><em><strong>Type:</strong></em>  {{ item ? item.type : "" }} <br><br></div>
     </div>
-    <img [src]="item ? item.imgURL : ''" width="300" (click)="showInfo(item)"> <br><br>
+    <!-- <img [src]="item ? item.imgURL : ''" width="300" (click)="showInfo(item)"> <br><br> -->
+    <div [ngSwitch] = 'item?.imgURL'>
+        <span *ngSwitchCase="null"><img src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2021/09/national-video-games-day.jpg" width="300"></span>
+        <span *ngSwitchDefault><img [src]="item ? item.imgURL : ''" width="300" (click)="showInfo(item)" ></span>
+    </div><br><br>
     <div class="tags" *ngIf="item?.tags">
-        <span class="tag" *ngFor="let tag of item?.tags">{{ tag }}</span>
+        <span appHoverAffect el="tags" class="tag" *ngFor="let tag of item?.tags">{{ tag }}</span>
     </div>
 
 </div>
@@ -27,8 +31,8 @@
         <h1>{{ item ? item.title : "" }}</h1>
         <br><br><em><strong>Description:</strong></em>  {{ item ? item.description : "" }} <br><br>
         <em><strong>Creator:</strong></em>  {{ item ? item.creator : "" }} <br><br>
-        <em><strong>Type:</strong></em>  {{ item ? item.type : "" }} <br><br> 
-        <img [src]="item ? item.imgURL : ''" width="300" (click)="showInfo(item)"> <br><br>
+        <div class="type" appHoverAffect><em><strong>Type:</strong></em>  {{ item ? item.type : "" }} <br><br></div> 
+        <div><img [src]="item ? item.imgURL : ''" width="300" (click)="showInfo(item)"> <br><br></div>
         <div class="tags" *ngIf="item?.tags">
             <span class="tag" *ngFor="let tag of item?.tags">{{ tag }}</span>
         </div>
