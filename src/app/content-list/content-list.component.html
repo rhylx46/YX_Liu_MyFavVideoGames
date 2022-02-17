@@ -5,7 +5,7 @@
 
 
 <h3>This is the full list:</h3>
-<div *ngFor="let item of myFavGames; let first = first" class="game" [class.first-item]="first" [ngClass] = "{'Action' : item.type == 'Action', 'SH' : item.type == 'Survival Horror', 'SRPG' : item.type == 'SRPG'}"> 
+<div *ngFor="let item of myFavGames; let first = first" class="game" [class.first-item]="first" [class.found] = "item.title == gameTitle.value" [ngClass] = "{'Action' : item.type == 'Action', 'SH' : item.type == 'Survival Horror', 'SRPG' : item.type == 'SRPG'}"> 
 
     <h1>{{ item ? item.title : "" }}</h1>
     <br><br><em><strong>Description:</strong></em>  {{ item ? item.description : "" }} <br><br>
@@ -26,7 +26,7 @@
 <br><br>
 <h3>This is the filtered list:</h3>
 
-<div *ngFor="let item of (myFavGames | filter); let first = first" class="game" [class.first-item]="first" [ngClass] = "{'Action' : item.type == 'Action', 'SH' : item.type == 'Survival Horror', 'SRPG' : item.type == 'SRPG'}"> 
+<div *ngFor="let item of (myFavGames | filter); let first = first" class="game" [class.first-item]="first" [class.found] = "item.title == gameTitle.value" [ngClass] = "{'Action' : item.type == 'Action', 'SH' : item.type == 'Survival Horror', 'SRPG' : item.type == 'SRPG'}"> 
 
         <h1>{{ item ? item.title : "" }}</h1>
         <br><br><em><strong>Description:</strong></em>  {{ item ? item.description : "" }} <br><br>
