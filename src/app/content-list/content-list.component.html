@@ -5,13 +5,13 @@
 
 
 <h3>This is the full list:</h3>
-<div *ngFor="let item of myFavGames; let first = first" class="game" [class.first-item]="first" [class.found] = "item.title == gameTitle.value" [ngClass] = "{'Action' : item.type == 'Action', 'SH' : item.type == 'Survival Horror', 'SRPG' : item.type == 'SRPG'}"> 
+<div appHoverAffect *ngFor="let item of myFavGames; let first = first; let last = last" class="game" [class.first-item]="first" [class.last-item]="last" [class.found] = "item.title == gameTitle.value" [ngClass] = "{'Action' : item.type == 'Action', 'SH' : item.type == 'Survival Horror', 'SRPG' : item.type == 'SRPG'}"> 
 
     <h1>{{ item ? item.title : "" }}</h1>
     <br><br><em><strong>Description:</strong></em>  {{ item ? item.description : "" }} <br><br>
     <em><strong>Creator:</strong></em>  {{ item ? item.creator : "" }} <br><br>
-    <div class="type" *ngIf="item?.type">
-        <div appHoverAffect><em><strong>Type:</strong></em>  {{ item ? item.type : "" }} <br><br></div>
+    <div *ngIf="item?.type">
+        <div appHoverAffect el="types" class="type"><em><strong>Type:</strong></em>  {{ item ? item.type : "" }} <br><br></div>
     </div>
     <!-- <img [src]="item ? item.imgURL : ''" width="300" (click)="showInfo(item)"> <br><br> -->
     <div [ngSwitch] = 'item?.imgURL'>

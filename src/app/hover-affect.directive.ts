@@ -17,8 +17,16 @@ export class HoverAffectDirective implements OnInit{
   }
 
   @HostListener("mouseout") onMouseOut() {
-    this.removeunderlineFunction();
-    this.removeboldFunction();
+
+    if (this.elm.nativeElement.classList.contains('type')){
+      this.removeunderlineFunction();
+      this.removeboldFunction();
+    } else {
+      this.removeunderlineFunction();
+      this.removeboldFunction();
+      this.removeborderFunction();
+    }
+
   }
 
   
@@ -27,7 +35,17 @@ export class HoverAffectDirective implements OnInit{
     // this.elm.nativeElement.style.textDecoration = "underline";
     if(elValue == "tags"){
       this.elm.nativeElement.style.fontWeight = "bold";
-    } else {
+    } 
+    
+    if( this.elm.nativeElement.classList.contains('first-item')) {
+      this.elm.nativeElement.style.border ="5px solid black";
+    } 
+    
+    if( this.elm.nativeElement.classList.contains('last-item')) {
+      this.elm.nativeElement.style.border ="5px solid black";
+    } 
+    
+    if (elValue == "types"){
       this.elm.nativeElement.style.textDecoration = "underline";
     }
   }
@@ -38,6 +56,10 @@ export class HoverAffectDirective implements OnInit{
 
   private removeboldFunction():void{
     this.elm.nativeElement.style.fontWeight = "normal";
+  }
+
+  private removeborderFunction():void{
+    this.elm.nativeElement.style.border = "1px solid black";
   }
 
 
