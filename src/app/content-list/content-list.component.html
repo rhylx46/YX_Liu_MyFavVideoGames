@@ -31,7 +31,9 @@
         <h1>{{ item ? item.title : "" }}</h1>
         <br><br><em><strong>Description:</strong></em>  {{ item ? item.description : "" }} <br><br>
         <em><strong>Creator:</strong></em>  {{ item ? item.creator : "" }} <br><br>
-        <div class="type" appHoverAffect><em><strong>Type:</strong></em>  {{ item ? item.type : "" }} <br><br></div> 
+        <div *ngIf="item?.type">
+            <div appHoverAffect el="types" class="type"><em><strong>Type:</strong></em>  {{ item ? item.type : "" }} <br><br></div>
+        </div>
         <div><img [src]="item ? item.imgURL : ''" width="300" (click)="showInfo(item)"> <br><br></div>
         <div class="tags" *ngIf="item?.tags">
             <span class="tag" *ngFor="let tag of item?.tags">{{ tag }}</span>

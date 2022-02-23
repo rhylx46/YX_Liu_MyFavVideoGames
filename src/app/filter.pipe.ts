@@ -6,8 +6,18 @@ import { Content } from './helper-files/content-interface';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(myFavGames: Content[]): Content[] {
-    return myFavGames.filter(item => item.type == null ? item.type == '' : item.type == "Action");
+  transform(myFavGames: Content[], filteredType?: string): Content[] {
+
+    filteredType = "Action";
+
+    return myFavGames.filter(item =>{ 
+      // item.type == null ? item.type == '' : item.type == "Action"
+      if(filteredType) {
+        return item.type == filteredType;    
+      } else {
+        return item.type == null;
+      }
+    });
   }
 
 }
