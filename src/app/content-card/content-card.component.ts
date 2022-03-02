@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Content} from "../helper-files/content-interface";
-import {ContentList} from "../helper-files/content-list";
+// import {ContentList} from "../helper-files/content-list";
 
 // import {Content} from 'src/app/helper-files/content-interface';
 
@@ -43,10 +43,10 @@ export class ContentCardComponent implements OnInit {
       type: "SRPG"
     };
 
-    this.contentArr = new ContentList();
-    this.contentArr.pushArr(this.Sekiro);
-    this.contentArr.pushArr(this.Fallout4);
-    this.contentArr.pushArr(this.DevilSurvivor);
+    //this.contentArr = new ContentList();
+    // this.contentArr.pushArr(this.Sekiro);
+    // this.contentArr.pushArr(this.Fallout4);
+    // this.contentArr.pushArr(this.DevilSurvivor);
 
   }
 

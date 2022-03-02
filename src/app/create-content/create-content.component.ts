@@ -1,7 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 
-import { ContentListComponent } from  '../content-list/content-list.component';
 
 @Component({
   selector: 'app-create-content',
@@ -26,7 +25,7 @@ export class CreateContentComponent implements OnInit {
     if (this.result == true) {
         success('The addition is successful!');
     } else {
-        // this.alert = "The addtion failed!";
+        
         fail('The addition failed!');
     }
   });
@@ -34,9 +33,7 @@ export class CreateContentComponent implements OnInit {
     this.newPromise.then(function(successEvent:any) {
         console.log(successEvent);
     }).catch(function(failureEvent:any) {
-        
-        // console.log(failureEvent);
-
+            
         const element: HTMLElement = document.getElementById('alert') as HTMLElement
         element.innerHTML = failureEvent;
     });
@@ -64,7 +61,7 @@ export class CreateContentComponent implements OnInit {
 
       this.newGameEvent.emit(this.newGame);
 
-      console.log(this.newGame.description);
+      // console.log(this.newGame.description);
     } else {
       this.result = false;
     }
