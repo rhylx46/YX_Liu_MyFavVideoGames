@@ -3,11 +3,26 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {ContentCardComponent} from './content-card/content-card.component';
+<<<<<<< Updated upstream
+=======
+import { ContentListComponent } from './content-list/content-list.component';
+import { FilterPipe } from './filter.pipe';
+import { HoverAffectDirective } from './hover-affect.directive';
+import { CreateContentComponent } from './create-content/create-content.component';
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
     AppComponent,
+<<<<<<< Updated upstream
     ContentCardComponent
+=======
+    ContentCardComponent,
+    ContentListComponent,
+    FilterPipe,
+    HoverAffectDirective,
+    CreateContentComponent
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,

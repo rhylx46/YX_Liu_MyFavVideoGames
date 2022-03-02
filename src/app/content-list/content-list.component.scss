@@ -1,0 +1,60 @@
+:host {
+    .game {
+        border: 1px solid black;
+        margin: 20px;
+        padding: 10px;
+    }
+
+
+
+    .first-item {
+        border: 2px solid black;
+    }
+
+    .SH {
+        color: red;
+    }
+
+    .Action {
+        color: #385CFF;
+    }
+
+    .SRPG {
+        color: #FF128C;
+    }
+
+    input {
+        margin-right: 20px;
+    }
+
+    .yes {
+        color: green;
+    }
+
+    .no {
+        color: red;
+    }
+
+    .tag {
+        background-color: lightgray;
+        border: 1px solid black;
+        padding: 6px;
+        margin: 8px;
+        border-radius: 5px;
+    }
+
+    .type {
+        display: block;
+    }
+
+    .found {
+        background-color: peachpuff;
+    }
+
+    #alert {
+        font-weight: bold;
+        color: red;
+        margin-top: 20px;
+    }
+}
+
