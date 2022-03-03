@@ -1,26 +1,27 @@
 <div>
-    id: <input #id>
+    id: <input #id #searchInput> 
 </div><br>
 <div>
-    title: <input #title>
+    title: <input #title #searchInput1>
 </div><br>
 <div>
-    description: <input #description>
+    description: <input #description #searchInput2>
 </div><br>
 <div>
-    creator: <input #creator>
+    creator: <input #creator #searchInput3>
 </div><br>
 <div>
-    image (Enter a valid URL): <input #imgURL>
+    image (Enter a valid URL): <input #imgURL #searchInput4>
 </div><br>
 <div>
-    type: <input #type>
+    type: <input #type #searchInput5>
 </div><br>
 <div>
-    tags (separate with a comma): <input #tags>
+    tags (separate with a comma): <input #tags #searchInput6>
 </div><br><br>
 
 <div>
     <button (click)="addGame(id.value, title.value, description.value, creator.value,imgURL.value, type.value, tags.value)" id="b2">Add New Game</button>
 </div>
 
+<div id="alert">{{ ss }}</div>
