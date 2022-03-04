@@ -1,37 +1,47 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild, ElementRef} from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { Content } from '../helper-files/content-interface';
-
 
 @Component({
   selector: 'app-create-content',
   templateUrl: './create-content.component.html',
-  styleUrls: ['./create-content.component.scss']
+  styleUrls: ['./create-content.component.scss'],
 })
 export class CreateContentComponent implements OnInit {
-  @ViewChild('searchInput') searchInput?: ElementRef;
-  @ViewChild('searchInput1') searchInput1?: ElementRef;
-  @ViewChild('searchInput2') searchInput2?: ElementRef;
-  @ViewChild('searchInput3') searchInput3?: ElementRef;
-  @ViewChild('searchInput4') searchInput4?: ElementRef;
-  @ViewChild('searchInput5') searchInput5?: ElementRef;
-  @ViewChild('searchInput6') searchInput6?: ElementRef;
+  @ViewChild('id') id?: ElementRef;
+  @ViewChild('title') title?: ElementRef;
+  @ViewChild('description') description?: ElementRef;
+  @ViewChild('creator') creator?: ElementRef;
+  @ViewChild('imgURL') imgURL?: ElementRef;
+  @ViewChild('type') type?: ElementRef;
+  @ViewChild('tags') tags?: ElementRef;
   @Output() newGameEvent: EventEmitter<Content> = new EventEmitter<Content>();
- 
-  newGame?: Content;
-  ss?:string;
-  result?: boolean;
 
+  newGame?: Content;
+  failMsg?: string;
+  result?: boolean;
 
   constructor(element: ElementRef) {
     console.log(element.nativeElement);
   }
-  
-  ngOnInit(): void {
-  }
 
- 
+  ngOnInit(): void {}
 
-  addGame(id: string, title: string, description: string, creator: string, imgURL: string, type: string, tags: string): any {
+  addGame(
+    id: string,
+    title: string,
+    description: string,
+    creator: string,
+    imgURL: string,
+    type: string,
+    tags: string
+  ): any {
     this.newGame = {
       id: parseInt(id),
       title: title,
@@ -39,13 +49,18 @@ export class CreateContentComponent implements OnInit {
       creator: creator,
       imgURL: imgURL,
       type: type,
-      tags: tags.split(",")
+      tags: tags.split(','),
     };
 
     const self = this;
 
-    if (this.newGame != null && this.newGame.id.toString() != '' && this.newGame.title != '' && this.newGame.description != '' && this.newGame.creator != '') {
-
+    if (
+      this.newGame != null &&
+      this.newGame.id.toString() != '' &&
+      this.newGame.title != '' &&
+      this.newGame.description != '' &&
+      this.newGame.creator != ''
+    ) {
       this.result = true;
 
       this.newGameEvent.emit(this.newGame);
@@ -55,56 +70,41 @@ export class CreateContentComponent implements OnInit {
       this.result = false;
     }
 
-      
     // this.hasLog();
 
-    
-    let newPromise:any;
+    let newPromise: any;
 
-    
     newPromise = new Promise((success, fail) => {
-
-    if (this.result == true) {
+      if (this.result == true) {
         success('The addition is successful!');
-    } else {
-        
+      } else {
         fail('The addition failed.');
-    }
-  });
+      }
+    });
 
-    
-
-   newPromise.then(function(successEvent:string) {
+    newPromise
+      .then(function (successEvent: string) {
         console.log(successEvent);
-        self.ss = '';
-        self.searchInput!.nativeElement!.value = '';
-        self.searchInput1!.nativeElement!.value = '';
-        self.searchInput2!.nativeElement!.value = '';
-        self.searchInput3!.nativeElement!.value = '';
-        self.searchInput4!.nativeElement!.value = '';
-        self.searchInput5!.nativeElement!.value = '';
-        self.searchInput6!.nativeElement!.value = '';
+        self.failMsg = '';
+        self.id!.nativeElement!.value = '';
+        self.title!.nativeElement!.value = '';
+        self.description!.nativeElement!.value = '';
+        self.creator!.nativeElement!.value = '';
+        self.imgURL!.nativeElement!.value = '';
+        self.type!.nativeElement!.value = '';
+        self.tags!.nativeElement!.value = '';
         // console.log(self.searchInput?.nativeElement.value);
-    }).catch(
-      
-      function(failureEvent:any) {
-            
+      })
+      .catch(function (failureEvent: any) {
         // const element: HTMLElement = document.getElementById('alert') as HTMLElement
         // element.innerHTML = failureEvent;
 
-        self.ss = failureEvent;
-        
-    });
-
-
-    
+        self.failMsg = failureEvent;
+      });
   }
 
   // clear():any {
-    
+
   //   this.searchInput?.nativeElement?.innerHTML?? '';
   // }
-
-  
-
 }
