@@ -1,2 +1,33 @@
 <!--{{ ContentList }}-->
-<app-content-card></app-content-card>
+<!-- <app-content-card></app-content-card> -->
+
+<app-content-list >
+
+</app-content-list>
+
+<h2>This is the one content:</h2>
+
+
+<input placeholder="input a id here" #id/>
+<button  (click) = "idPass(id.value)">Display</button>
+
+
+<div *ngIf="oneGame">
+
+    <div class="game" [style.box-shadow]="'5px 10px #888888'">    
+        <h1>{{ oneGame? oneGame.title: "" }}</h1>
+        <!-- <h1>{{ oneGame.title}}</h1> -->
+        <br><br><em><strong>Description:</strong></em> {{ oneGame ? oneGame.description : "" }} <br><br>
+        <em><strong>Creator:</strong></em>  {{ oneGame ? oneGame.creator : "" }} <br><br>
+        <div *ngIf="oneGame?.type">
+            <div><em><strong>Type:</strong></em>  {{ oneGame ? oneGame.type : "" }} <br><br></div>
+        </div>
+        <div><img [src]="oneGame ? oneGame.imgURL : ''" width="300"> <br><br></div>
+        <div *ngIf="oneGame?.tags">
+            <span class="tag" *ngFor="let tag of oneGame?.tags">{{ tag }}</span>
+        </div>
+    </div>
+</div>
+
+
+<app-app-messages [style.color] = "'green'"></app-app-messages>

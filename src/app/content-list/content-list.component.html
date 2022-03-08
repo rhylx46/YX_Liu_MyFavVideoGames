@@ -1,0 +1,46 @@
+<input placeholder="Enter a title" #gameTitle/><button (click) = "gameFilter(gameTitle.value)">Submit</button>
+<!-- <div [(ngModel)]="color"><p [style.color]="color">{{ msg }}</p></div> -->
+<div><p *ngIf="msg == 'Yes, there is the game you want'" class="yes">{{ msg }}</p></div>
+<div><p *ngIf="msg == 'No, can\'t find it'" class="no">{{ msg }}</p></div>
+
+
+<h3>This is the full list:</h3>
+<div appHoverAffect *ngFor="let item of myFavGames; let first = first; let last = last" class="game" [class.first-item]="first" [class.last-item]="last" [class.found] = "item.title == gameTitle.value" [ngClass] = "{'Action' : item.type == 'Action', 'SH' : item.type == 'Survival Horror', 'SRPG' : item.type == 'SRPG'}"> 
+
+    <h1>{{ item ? item.title : "" }}</h1>
+    <br><br><em><strong>Description:</strong></em>  {{ item ? item.description : "" }} <br><br>
+    <em><strong>Creator:</strong></em>  {{ item ? item.creator : "" }} <br><br>
+    <div *ngIf="item?.type">
+        <div appHoverAffect el="types" class="type"><em><strong>Type:</strong></em>  {{ item ? item.type : "" }} <br><br></div>
+    </div>
+    <!-- <img [src]="item ? item.imgURL : ''" width="300" (click)="showInfo(item)"> <br><br> -->
+    <div [ngSwitch] = 'item?.imgURL'>
+        <span *ngSwitchCase="null"><img src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2021/09/national-video-games-day.jpg" width="300"></span>
+        <span *ngSwitchDefault><img [src]="item ? item.imgURL : ''" width="300" (click)="showInfo(item)" ></span>
+    </div><br><br>
+    <div class="tags" *ngIf="item?.tags">
+        <span appHoverAffect el="tags" class="tag" *ngFor="let tag of item?.tags">{{ tag }}</span>
+    </div>
+
+</div>
+<br><br>
+<h3>This is the filtered list:</h3>
+
+<div *ngFor="let item of (myFavGames | filter); let first = first" class="game" [class.first-item]="first" [class.found] = "item.title == gameTitle.value" [ngClass] = "{'Action' : item.type == 'Action', 'SH' : item.type == 'Survival Horror', 'SRPG' : item.type == 'SRPG'}"> 
+
+        <h1>{{ item ? item.title : "" }}</h1>
+        <br><br><em><strong>Description:</strong></em>  {{ item ? item.description : "" }} <br><br>
+        <em><strong>Creator:</strong></em>  {{ item ? item.creator : "" }} <br><br>
+        <div *ngIf="item?.type">
+            <div appHoverAffect el="types" class="type"><em><strong>Type:</strong></em>  {{ item ? item.type : "" }} <br><br></div>
+        </div>
+        <div><img [src]="item ? item.imgURL : ''" width="300" (click)="showInfo(item)"> <br><br></div>
+        <div class="tags" *ngIf="item?.tags">
+            <span class="tag" *ngFor="let tag of item?.tags">{{ tag }}</span>
+        </div>
+
+</div>
+
+
+
+
