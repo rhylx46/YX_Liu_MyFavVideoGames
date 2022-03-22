@@ -1,10 +1,6 @@
 {
   "name": "yx-liu-my-favourite-video-games",
-<<<<<<< Updated upstream
-  "version": "0.0.1",
-=======
   "version": "0.0.7",
->>>>>>> Stashed changes
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

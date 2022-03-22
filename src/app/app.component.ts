@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Content } from './helper-files/content-interface';
+import { ContentServiceService } from './services/content-service.service';
+
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'YX_Liu_WEB601Assignments_MyFavouriteVideoGames';
-<<<<<<< Updated upstream
-=======
   // oneGame: any; 
   // myFavGames: Content[];
   constructor(private contentService: ContentServiceService) {
@@ -30,5 +32,4 @@ export class AppComponent {
   // }
 
 
->>>>>>> Stashed changes
 }
