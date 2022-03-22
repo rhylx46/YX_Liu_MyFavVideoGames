@@ -3,10 +3,22 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {ContentCardComponent} from './content-card/content-card.component';
+<<<<<<< Updated upstream
+=======
+import { ContentListComponent } from './content-list/content-list.component';
+import { FilterPipe } from './filter.pipe';
+import { HoverAffectDirective } from './hover-affect.directive';
+import { AppMessagesComponent } from './app-messages/app-messages.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
+import { InMemoryDataService } from "./services/in-memory-data.service";
+import { ModifyContentComponent } from './modify-content/modify-content.component';
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
     AppComponent,
+<<<<<<< Updated upstream
     ContentCardComponent
   ],
   imports: [
@@ -27,6 +39,25 @@ import {ContentCardComponent} from './content-card/content-card.component';
   //     }
   //   }
   // ],
+=======
+    ContentCardComponent,
+    ContentListComponent,
+    FilterPipe,
+    HoverAffectDirective,
+    AppMessagesComponent,
+    ModifyContentComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
+      delay: 1000
+    })
+  ],
+  providers: [],
+>>>>>>> Stashed changes
   bootstrap: [AppComponent]
 })
 export class AppModule {

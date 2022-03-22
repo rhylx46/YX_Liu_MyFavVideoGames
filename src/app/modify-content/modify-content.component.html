@@ -1,0 +1,28 @@
+<div>
+    <!-- id (For Updating Only): <input type="text" [ngModel]='text' (ngModelChange)='onChange($event)' #id />  -->
+    id (For Updating Only): <input  #id /> 
+</div><br>
+<div>
+    title: <input #title>
+</div><br>
+<div>
+    description: <input #description>
+</div><br>
+<div>
+    creator: <input #creator>
+</div><br>
+<div>
+    image (Enter a valid URL): <input #imgURL>
+</div><br>
+<div>
+    type: <input #type>
+</div><br>
+<div>
+    tags (separate with a comma): <input #tags>
+</div><br><br>
+
+<div>
+    <button (click)="addGame(title.value, description.value, creator.value,imgURL.value, type.value, tags.value)" id="b1">Add New Game</button>
+    <!-- <button *ngIf="id.value != ''" (click)="addGame(title.value, description.value, creator.value,imgURL.value, type.value, tags.value)">Update</button> -->
+    <button (click)="updateGame(id.value, title.value, description.value, creator.value,imgURL.value, type.value, tags.value)">Update Game</button>
+</div>
