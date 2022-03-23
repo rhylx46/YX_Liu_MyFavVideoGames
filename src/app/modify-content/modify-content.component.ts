@@ -128,6 +128,7 @@ export class ModifyContentComponent implements OnInit {
 
     newPromise
       .then(function (successEvent: string) {
+        self.id!.nativeElement!.value = '';
         self.title!.nativeElement!.value = '';
         self.description!.nativeElement!.value = '';
         self.creator!.nativeElement!.value = '';
