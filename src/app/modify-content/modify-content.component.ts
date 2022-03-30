@@ -48,7 +48,7 @@ export class ModifyContentComponent implements OnInit {
         creator: new FormControl(this.data.creator),
         imgURL: new FormControl(this.data.imgURL),
         type: new FormControl(this.data.type),
-        tags: new FormControl(this.data.tags.join()),
+        tags: new FormControl(this.data.tags ? this.data.tags.join(): ''),
       });
     } else {
       this.formGroup = new FormGroup({

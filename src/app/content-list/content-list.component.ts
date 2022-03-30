@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Content } from '../helper-files/content-interface';
 import { ModifyContentComponent } from '../modify-content/modify-content.component';
 import { ContentServiceService } from '../services/content-service.service';
+import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-content-list',
@@ -19,6 +20,7 @@ export class ContentListComponent implements OnInit {
 
   constructor(
     private contentService: ContentServiceService,
+    private messageService: MessageService,
     public dialog: MatDialog
   ) {
     this.myFavGames = [];
@@ -35,6 +37,7 @@ export class ContentListComponent implements OnInit {
       if (result.game.id >= 0) {
         console.log('hello');
         this.myFavGames[result.game['id']] = result.game;
+        this.messageService.add(`${result.game['title']} updated!`);
       } else {
         result.game['id'] = this.myFavGames.length;
         this.myFavGames.push(result.game);
