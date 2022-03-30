@@ -1,54 +1,51 @@
 :host {
-    .game {
-        border: 1px solid black;
-        margin: 20px;
-        padding: 10px;
-    }
+  .game {
+    border: 1px solid black;
+    margin: 20px;
+    padding: 10px;
+  }
 
+  .first-item {
+    border: 2px solid black;
+  }
 
+  .SH {
+    color: red;
+  }
 
-    .first-item {
-        border: 2px solid black;
-    }
+  .Action {
+    color: #385cff;
+  }
 
-    .SH {
-        color: red;
-    }
+  .SRPG {
+    color: #ff128c;
+  }
 
-    .Action {
-        color: #385CFF;
-    }
+  input {
+    margin-right: 20px;
+  }
 
-    .SRPG {
-        color: #FF128C;
-    }
+  .yes {
+    color: green;
+  }
 
-    input {
-        margin-right: 20px;
-    }
+  .no {
+    color: red;
+  }
 
-    .yes {
-        color: green;
-    }
+  .tag {
+    background-color: lightgray;
+    border: 1px solid black;
+    padding: 6px;
+    margin: 8px;
+    border-radius: 5px;
+  }
 
-    .no {
-        color: red;
-    }
+  .type {
+    display: block;
+  }
 
-    .tag {
-        background-color: lightgray;
-        border: 1px solid black;
-        padding: 6px;
-        margin: 8px;
-        border-radius: 5px;
-    }
-
-    .type {
-        display: block;
-    }
-
-    .found {
-        background-color: peachpuff;
-    }
+  .found {
+    background-color: peachpuff;
+  }
 }
-
