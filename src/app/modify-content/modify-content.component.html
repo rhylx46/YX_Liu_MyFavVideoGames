@@ -4,75 +4,35 @@
 </div> -->
 <form [formGroup]="formGroup">
   <mat-form-field class="example-full-width" color="primary">
-    <input
-      matInput
-      placeholder="id (For Updating Only)"
-      #id
-      formControlName="id"
-    />
+    <input matInput placeholder="id (For Updating Only)" #id formControlName="id" />
   </mat-form-field>
 
   <br />
   <mat-form-field class="example-full-width" color="primary">
-    <input
-      matInput
-      placeholder="title"
-      #title
-      formControlName="title"
-    /> </mat-form-field
-  ><br />
+    <input matInput placeholder="title" #title formControlName="title" />
+  </mat-form-field><br />
   <mat-form-field class="example-full-width" color="primary">
-    <input
-      matInput
-      placeholder="description"
-      #description
-      formControlName="description"
-    /> </mat-form-field
-  ><br />
+    <input matInput placeholder="description" #description formControlName="description" />
+  </mat-form-field><br />
   <mat-form-field class="example-full-width" color="primary">
-    <input
-      matInput
-      placeholder="creator"
-      #creator
-      formControlName="creator"
-    /> </mat-form-field
-  ><br />
+    <input matInput placeholder="creator" #creator formControlName="creator" />
+  </mat-form-field><br />
   <mat-form-field class="example-full-width" color="primary">
-    <input
-      matInput
-      placeholder="image (Enter a valid URL)"
-      formControlName="imgURL"
-      #imgURL
-    /> </mat-form-field
-  ><br />
+    <input matInput placeholder="image (Enter a valid URL)" formControlName="imgURL" #imgURL />
+  </mat-form-field><br />
   <mat-form-field class="example-full-width" color="primary">
-    <input
-      matInput
-      placeholder="type"
-      #type
-      formControlName="type"
-    /> </mat-form-field
-  ><br />
+    <input matInput placeholder="type" #type formControlName="type" />
+  </mat-form-field><br />
   <mat-form-field class="example-full-width" color="primary">
-    <input
-      matInput
-      placeholder="tags (Seperate with a comma)"
-      formControlName="tags"
-      #tags
-    /> </mat-form-field
-  ><br /><br />
+    <input matInput placeholder="tags (Seperate with a comma)" formControlName="tags" #tags />
+  </mat-form-field><br /><br />
 </form>
 
 <div>
-  <button
-    mat-raised-button
-    color="accent"
-    style="margin-right: 20px"
-    (click)="onNoClick()"
-  >
+  <button mat-raised-button color="accent" style="margin-right: 20px" (click)="onNoClick()">
     Cancel
   </button>
-  <button mat-raised-button color="warn" (click)="addGame()" id="b1">
+  <button mat-raised-button color="warn"  (click)="addGame()" id="b1" >
     {{ !id.value ? "Add New Game" : "Update Game" }}
     <!-- Add New Game -->
   </button>

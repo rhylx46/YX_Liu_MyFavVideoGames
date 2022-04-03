@@ -15,6 +15,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import {MatBadgeModule} from '@angular/material/badge';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +44,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     MatInputModule,
     MatDialogModule,
+    MatCardModule,
+    MatDividerModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

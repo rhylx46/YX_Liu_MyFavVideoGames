@@ -63,6 +63,12 @@ export class ModifyContentComponent implements OnInit {
     }
   }
 
+  hidden = false;
+
+  toggleBadgeVisibility() {
+    this.hidden = !this.hidden;
+  }
+
   onNoClick(): void {
     this.dialogRef?.close();
   }
