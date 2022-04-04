@@ -53,12 +53,12 @@
       <br /><br />
       
       <div style="display: flex; justify-content: flex-start; align-items: center">
-        <div class="tags" *ngIf="item?.tags" style="margin-bottom: 40px;">
+        <div class="tags" *ngIf="item?.tags" style="margin-bottom: 50px;">
           <span appHoverAffect el="tags" class="tag" *ngFor="let tag of item?.tags">
             {{ tag }}
           </span>
         </div>
-        <mat-divider ></mat-divider>
+        <mat-divider></mat-divider>
         <button mat-raised-button color="accent" (click)="openDialog(i)" style="margin-top: 70px;">Update</button>
       </div>
   </mat-card>
