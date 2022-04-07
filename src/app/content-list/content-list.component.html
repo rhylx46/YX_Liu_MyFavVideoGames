@@ -2,9 +2,11 @@
 <h3>Add a new game to the list here:</h3>
 
 <app-app-messages [style.color]="'green'"></app-app-messages>
-<br />
+<button (click)="clear()">Clear the message</button>
+<br /><br>
 <div>
-  <button mat-raised-button color="primary" (click)="openDialog(-1)" matBadge="{{ myFavGames.length }}" matBadgePosition="before" matBadgeColor="warn">
+  <button mat-raised-button color="primary" (click)="openDialog(-1)" matBadge="{{ myFavGames.length }}"
+    matBadgePosition="before" matBadgeColor="warn">
     Add New Content
   </button>
 </div>
@@ -20,7 +22,11 @@
 <div>
   <p *ngIf="msg == 'No, can\'t find it'" class="no">{{ msg }}</p>
 </div>
-
+<br>
+<a routerLink="dadwa" routerLinkActive="active">
+  Invalid page link
+</a>
+<br><br>
 <h3>This is the full list:</h3>
 <div appHoverAffect *ngFor="
     let item of myFavGames;
@@ -33,34 +39,41 @@
     SH: item.type == 'Survival Horror',
     SRPG: item.type == 'SRPG'
   }">
-    <mat-card>
-      <mat-card-title><h1>{{ item ? item.title : "" }}</h1></mat-card-title><mat-divider ></mat-divider>
-      <br /><br /><em><strong>Description:</strong></em>
-      {{ item ? item.description : "" }} <br /><br />
-      <em><strong>Creator:</strong></em> {{ item ? item.creator : "" }} <br /><br />
-      <div *ngIf="item?.type">
-        <div appHoverAffect el="types" class="type">
-          <em><strong>Type:</strong></em> {{ item ? item.type : "" }} <br /><br />
-        </div>
+  <mat-card>
+    <mat-card-title>
+      <h1>{{ item ? item.title : "" }}</h1>
+    </mat-card-title>
+    <mat-divider></mat-divider>
+    <br /><br />
+    
+    <div *ngIf="item?.type">
+      <div appHoverAffect el="types" class="type">
+        <em><strong>Type:</strong></em> {{ item ? item.type : "" }} <br /><br />
       </div>
-      <!-- <img [src]="item ? item.imgURL : ''" width="300" (click)="showInfo(item)"> <br><br> -->
-      <div [ngSwitch]="item?.imgURL">
-        <span *ngSwitchCase="null"><img 
-            src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2021/09/national-video-games-day.jpg"
-            width="300" /></span>
-        <span *ngSwitchDefault><img [src]="item ? item.imgURL : ''" width="300" (click)="showInfo(item)" /></span>
+    </div>
+    <br>
+    <a [routerLink]="['/content', item.id]" routerLinkActive="active" >
+      Read the details
+     </a>
+    <!-- <img [src]="item ? item.imgURL : ''" width="300" (click)="showInfo(item)"> <br><br> -->
+    <div [ngSwitch]="item?.imgURL" style="margin-top: 30px;">
+      <span *ngSwitchCase="null"><img
+          src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2021/09/national-video-games-day.jpg"
+          width="300" /></span>
+      <span *ngSwitchDefault><img [src]="item ? item.imgURL : ''" width="300" (click)="showInfo(item)" /></span>
+    </div>
+    <br /><br />
+
+    <div style="display: flex; justify-content: flex-start; align-items: center">
+      <div class="tags" *ngIf="item?.tags" style="margin-bottom: 50px;">
+        <span appHoverAffect el="tags" class="tag" *ngFor="let tag of item?.tags">
+          {{ tag }}
+        </span>
       </div>
-      <br /><br />
-      
-      <div style="display: flex; justify-content: flex-start; align-items: center">
-        <div class="tags" *ngIf="item?.tags" style="margin-bottom: 50px;">
-          <span appHoverAffect el="tags" class="tag" *ngFor="let tag of item?.tags">
-            {{ tag }}
-          </span>
-        </div>
-        <mat-divider></mat-divider>
-        <button mat-raised-button color="accent" (click)="openDialog(i)" style="margin-top: 70px;">Update</button>
-      </div>
+
+      <mat-divider></mat-divider>
+      <button mat-raised-button color="accent" (click)="openDialog(i)" style="margin-top: 70px;">Update</button>
+    </div>
   </mat-card>
 </div>
 <br /><br />
@@ -83,11 +96,14 @@
   </div>
   <div>
     <img [src]="item ? item.imgURL : ''" width="300" (click)="showInfo(item)" />
-    <br /><br />
-  </div>
+    
+  </div><br />
+
   <div class="tags" *ngIf="item?.tags">
     <span class="tag" *ngFor="let tag of item?.tags">{{ tag }}</span>
   </div>
+
+
 </div>
 
 <!-- </div> -->

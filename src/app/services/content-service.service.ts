@@ -6,6 +6,7 @@ import { MessageService } from '../services/message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -49,6 +50,12 @@ export class ContentServiceService {
   getContent() : Observable<Content[]> {
     return this.http.get<Content[]>("api/game");
   }
+
+
+  getContentItem(id: number): Observable<Content>{
+    return this.http.get<Content>("api/game/" + id);
+  }
+
 
   addContent(newContentItem: Content): Observable<Content>{
     this.messageService.clear();

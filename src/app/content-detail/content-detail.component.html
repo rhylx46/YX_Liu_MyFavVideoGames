@@ -1,0 +1,36 @@
+<app-app-messages [style.color]="'green'"></app-app-messages>
+  <mat-card>
+    <mat-card-title>
+      <h1>{{ item ? item.title : "" }}</h1>
+    </mat-card-title>
+    <mat-divider></mat-divider>
+    <br /><br /><em><strong>Description:</strong></em>
+    {{ item ? item.description : "" }} <br /><br />
+    <em><strong>Creator:</strong></em> {{ item ? item.creator : "" }} <br /><br />
+    <div *ngIf="item?.type">
+      <div el="types" class="type">
+        <em><strong>Type:</strong></em> {{ item ? item.type : "" }} <br /><br />
+      </div>
+    </div>
+    <div [ngSwitch]="item?.imgURL">
+      <span *ngSwitchCase="null"><img
+          src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2021/09/national-video-games-day.jpg"
+          width="300" /></span>
+      <span *ngSwitchDefault><img [src]="item ? item.imgURL : ''" width="300" /></span>
+    </div>
+    <br /><br />
+
+    <div style="display: flex; justify-content: flex-start; align-items: center">
+      <div class="tags" *ngIf="item?.tags" style="margin-bottom: 50px;">
+        <span el="tags" class="tag" *ngFor="let tag of item?.tags">
+          {{ tag }}
+        </span>
+      </div>
+      
+      
+    </div>
+    <a [routerLink]="['/content']" routerLinkActive="active">Go back to the list</a>
+  </mat-card>
+
+
+

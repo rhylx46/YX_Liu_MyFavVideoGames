@@ -50,6 +50,10 @@ export class ContentListComponent implements OnInit {
     console.log('id: ' + item.id + '\ntitle: ' + item.title);
   }
 
+  clear() {
+    this.messageService.clear();
+  }
+
   gameFilter(game: string): any {
     for (let i = 0; i < this.myFavGames.length; i++) {
       if (game == this.myFavGames[i].title) {
