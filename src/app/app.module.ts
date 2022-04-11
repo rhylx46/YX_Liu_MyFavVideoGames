@@ -22,6 +22,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { ContentDetailComponent } from './content-detail/content-detail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -54,7 +56,13 @@ import { HomeComponent } from './home/home.component';
     MatCardModule,
     MatDividerModule,
     MatBadgeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],
