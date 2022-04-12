@@ -11,6 +11,7 @@ import { Content } from '../helper-files/content-interface';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, FormControl } from '@angular/forms';
 
+
 @Component({
   selector: 'app-modify-content',
   templateUrl: './modify-content.component.html',
@@ -33,6 +34,7 @@ export class ModifyContentComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<ModifyContentComponent>,
+   
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
   newGame?: Content;
@@ -84,8 +86,9 @@ export class ModifyContentComponent implements OnInit {
       type: this.formGroup.value.type,
       tags: this.formGroup.value.tags.split(','),
     };
+ 
     this.dialogRef.close({ game: this.newGame });
-
+    
     // this.newGameEvent.emit(this.newGame);
     const self = this;
     if (
@@ -129,67 +132,67 @@ export class ModifyContentComponent implements OnInit {
     //   });
   }
 
-  updateGame(): void {
-    console.log(this.formGroup.value.tags);
-    this.newGame = {
-      id: parseInt(this.formGroup.value.id),
-      title: this.formGroup.value.title,
-      description: this.formGroup.value.description,
-      creator: this.formGroup.value.creator,
-      imgURL: this.formGroup.value.imgURL,
-      type: this.formGroup.value.type,
-      tags: this.formGroup.value.tags.split(','),
-    };
-    this.dialogRef.close({ game: this.newGame });
-    // this.updateGameEvent.emit(this.newGame);
+  // updateGame(): void {
+  //   console.log(this.formGroup.value.tags);
+  //   this.newGame = {
+  //     id: parseInt(this.formGroup.value.id),
+  //     title: this.formGroup.value.title,
+  //     description: this.formGroup.value.description,
+  //     creator: this.formGroup.value.creator,
+  //     imgURL: this.formGroup.value.imgURL,
+  //     type: this.formGroup.value.type,
+  //     tags: this.formGroup.value.tags.split(','),
+  //   };
+  //   this.dialogRef.close({ game: this.newGame });
+  //   // this.updateGameEvent.emit(this.newGame);
 
-    const self = this;
-    if (
-      this.newGame.id == 0 ||
-      this.newGame.id == 1 ||
-      this.newGame.id == 2 ||
-      this.newGame.id == 3 ||
-      this.newGame.id == 4 ||
-      this.newGame.id == 5 ||
-      (this.newGame.id == 6 &&
-        this.newGame != null &&
-        this.newGame.title != '' &&
-        this.newGame.description != '' &&
-        this.newGame.creator != '')
-    ) {
-      this.result = true;
+  //   const self = this;
+  //   if (
+  //     this.newGame.id == 0 ||
+  //     this.newGame.id == 1 ||
+  //     this.newGame.id == 2 ||
+  //     this.newGame.id == 3 ||
+  //     this.newGame.id == 4 ||
+  //     this.newGame.id == 5 ||
+  //     (this.newGame.id == 6 &&
+  //       this.newGame != null &&
+  //       this.newGame.title != '' &&
+  //       this.newGame.description != '' &&
+  //       this.newGame.creator != '')
+  //   ) {
+  //     this.result = true;
 
-      //this.updateGameEvent.emit(this.newGame);
+  //     //this.updateGameEvent.emit(this.newGame);
 
-      // console.log(this.newGame.description);
-    } else {
-      this.result = false;
-    }
-    let newPromise: any;
+  //     // console.log(this.newGame.description);
+  //   } else {
+  //     this.result = false;
+  //   }
+  //   let newPromise: any;
 
-    newPromise = new Promise((success, fail) => {
-      if (this.result == true) {
-        success('The addition is successful!');
-      } else {
-        fail('The addition failed.');
-      }
-    });
+  //   newPromise = new Promise((success, fail) => {
+  //     if (this.result == true) {
+  //       success('The addition is successful!');
+  //     } else {
+  //       fail('The addition failed.');
+  //     }
+  //   });
 
-    // newPromise
-    //   .then(function (successEvent: string) {
-    //     self.id!.nativeElement!.value = '';
-    //     self.title!.nativeElement!.value = '';
-    //     self.description!.nativeElement!.value = '';
-    //     self.creator!.nativeElement!.value = '';
-    //     self.imgURL!.nativeElement!.value = '';
-    //     self.type!.nativeElement!.value = '';
-    //     self.tags!.nativeElement!.value = '';
-    //     // console.log(self.searchInput?.nativeElement.value);
-    //   })
-    //   .catch(function (failureEvent: any) {
-    //     // const element: HTMLElement = document.getElementById('alert') as HTMLElement
-    //     // element.innerHTML = failureEvent;
-    //     // self.failMsg = failureEvent;
-    //   });
-  }
+  //   // newPromise
+  //   //   .then(function (successEvent: string) {
+  //   //     self.id!.nativeElement!.value = '';
+  //   //     self.title!.nativeElement!.value = '';
+  //   //     self.description!.nativeElement!.value = '';
+  //   //     self.creator!.nativeElement!.value = '';
+  //   //     self.imgURL!.nativeElement!.value = '';
+  //   //     self.type!.nativeElement!.value = '';
+  //   //     self.tags!.nativeElement!.value = '';
+  //   //     // console.log(self.searchInput?.nativeElement.value);
+  //   //   })
+  //   //   .catch(function (failureEvent: any) {
+  //   //     // const element: HTMLElement = document.getElementById('alert') as HTMLElement
+  //   //     // element.innerHTML = failureEvent;
+  //   //     // self.failMsg = failureEvent;
+  //   //   });
+  // }
 }

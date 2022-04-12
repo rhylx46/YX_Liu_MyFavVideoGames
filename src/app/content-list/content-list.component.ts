@@ -4,6 +4,7 @@ import { Content } from '../helper-files/content-interface';
 import { ModifyContentComponent } from '../modify-content/modify-content.component';
 import { ContentServiceService } from '../services/content-service.service';
 import { MessageService } from '../services/message.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-content-list',
@@ -21,12 +22,42 @@ export class ContentListComponent implements OnInit {
   constructor(
     private contentService: ContentServiceService,
     private messageService: MessageService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar
   ) {
     this.myFavGames = [];
   }
 
-  openDialog(i: any) {
+  openSnackBar(i:any) {
+    
+    let snackBarRef = this._snackBar.open('ready to update', 'update!');
+    
+
+    snackBarRef.afterDismissed().subscribe(() => {
+      const dialogRef = this.dialog.open(ModifyContentComponent, {
+        data: i >= 0 ? this.myFavGames[i] : null,
+      });
+  
+      dialogRef.afterClosed().subscribe((result) => {
+        console.log(result.game.id);
+        if (result.game.id >= 0) {
+          console.log('hello');
+          this.myFavGames[result.game['id']] = result.game;
+          this.messageService.add(`${result.game['title']} updated!`);
+        } else {
+          result.game['id'] = this.myFavGames.length;
+          this.myFavGames.push(result.game);
+        }
+  
+  
+        console.log(this.myFavGames);
+      });
+    });
+
+   
+  }
+
+  openDialog1(i: any) {
     console.log(i);
     const dialogRef = this.dialog.open(ModifyContentComponent, {
       data: i >= 0 ? this.myFavGames[i] : null,
@@ -42,6 +73,7 @@ export class ContentListComponent implements OnInit {
         result.game['id'] = this.myFavGames.length;
         this.myFavGames.push(result.game);
       }
+
 
       console.log(this.myFavGames);
     });

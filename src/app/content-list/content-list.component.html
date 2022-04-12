@@ -5,7 +5,7 @@
 <button (click)="clear()">Clear the message</button>
 <br /><br>
 <div>
-  <button mat-raised-button color="primary" (click)="openDialog(-1)" matBadge="{{ myFavGames.length }}"
+  <button mat-raised-button color="primary" (click)="openDialog1(-1)" matBadge="{{ myFavGames.length }}"
     matBadgePosition="before" matBadgeColor="warn">
     Add New Content
   </button>
@@ -72,7 +72,7 @@
       </div>
 
       <mat-divider></mat-divider>
-      <button mat-raised-button color="accent" (click)="openDialog(i)" style="margin-top: 70px;">Update</button>
+      <button mat-raised-button color="accent" (click)="openSnackBar(i)" style="margin-top: 70px;">Update</button>
     </div>
   </mat-card>
 </div>

@@ -2,8 +2,11 @@
     
     id (For Updating Only): <input  #id /> 
 </div> -->
+
+
 <form [formGroup]="formGroup">
-  <mat-form-field class="example-full-width" color="primary">
+  <mat-form-field class="example-full-width" color="primary" >
+    
     <input matInput placeholder="id (For Updating Only)" #id formControlName="id" />
   </mat-form-field>
 
@@ -33,7 +36,7 @@
     Cancel
   </button>
   <button mat-raised-button color="warn"  (click)="addGame()" id="b1" >
-    {{ !id.value ? "Add New Game" : "Update Game" }}
+    Update
     <!-- Add New Game -->
   </button>
   <!-- <button *ngIf="id.value != ''" (click)="addGame(title.value, description.value, creator.value,imgURL.value, type.value, tags.value)">Update</button> -->
