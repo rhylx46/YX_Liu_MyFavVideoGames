@@ -28,17 +28,45 @@ export class ContentListComponent implements OnInit {
     this.myFavGames = [];
   }
 
-  openSnackBar(i:any) {
+  // openSnackBar(i:any) {
     
-    let snackBarRef = this._snackBar.open('ready to update', 'update!');
+  //   let snackBarRef = this._snackBar.open('ready to update', 'update!');
     
 
-    snackBarRef.afterDismissed().subscribe(() => {
-      const dialogRef = this.dialog.open(ModifyContentComponent, {
-        data: i >= 0 ? this.myFavGames[i] : null,
-      });
+  //   snackBarRef.afterDismissed().subscribe(() => {
+  //     const dialogRef = this.dialog.open(ModifyContentComponent, {
+  //       data: i >= 0 ? this.myFavGames[i] : null,
+  //     });
   
-      dialogRef.afterClosed().subscribe((result) => {
+  //     dialogRef.afterClosed().subscribe((result) => {
+  //       console.log(result.game.id);
+  //       if (result.game.id >= 0) {
+  //         console.log('hello');
+  //         this.myFavGames[result.game['id']] = result.game;
+  //         this.messageService.add(`${result.game['title']} updated!`);
+  //       } else {
+  //         result.game['id'] = this.myFavGames.length;
+  //         this.myFavGames.push(result.game);
+  //       }
+  
+  
+  //       console.log(this.myFavGames);
+  //     });
+  //   });
+
+   
+  // }
+
+  openDialog(i: any) {
+    console.log(i);
+    const dialogRef = this.dialog.open(ModifyContentComponent, {
+      data: i >= 0 ? this.myFavGames[i] : null,
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      let snackBarRef = this._snackBar.open('ready to update', 'Confirm');
+      
+      snackBarRef.afterDismissed().subscribe(() => {
         console.log(result.game.id);
         if (result.game.id >= 0) {
           console.log('hello');
@@ -52,9 +80,9 @@ export class ContentListComponent implements OnInit {
   
         console.log(this.myFavGames);
       });
+  
+      
     });
-
-   
   }
 
   openDialog1(i: any) {
